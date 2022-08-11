@@ -32,37 +32,27 @@ namespace MozartTry2
                     filesTrioen[row,col] = @"Wave\T" + trioen[row, col] + ".wav";
                 }
             }
-            //a random random generator
-            Random rng = new Random();
-
+            
             //a soundplayer to use to play media files
             System.Media.SoundPlayer sp = new System.Media.SoundPlayer();
-            //a few ints to make sure the files are played in the right order
-            int minuttenCount = 0;
-            int trioenCount = 0;
-            //a int for 2 dices roll and a int for a single dice roll
-            int dice2x = 0;
-            int dice1x = 0;
+            //a dice to roll the random number
+            Random rng = new Random();
+            int dice = 0;
 
             //a for loop and ifs to play all 32 sequences and switch between minuetten and trioen every sequence.
-            for (int sequence = 0; sequence < 32; sequence++)
+            for (int sequence = 0; sequence < minuetten.GetLength(0); sequence++)
             {
-                if (sequence % 2 == 0)
-                {
-                    dice2x = rng.Next(0, 12);
-                    sp.SoundLocation = filesMinuetten[minuttenCount, dice2x];
-                    sp.Load();
-                    sp.PlaySync();
-                    minuttenCount++;
-                }
-                else
-                {
-                    dice1x = rng.Next(0, 6);
-                    sp.SoundLocation = filesTrioen[trioenCount, dice1x];
-                    sp.Load();
-                    sp.PlaySync();
-                    trioenCount++;
-                }
+                //Minuetten
+                dice = rng.Next(0, 11);
+                sp.SoundLocation = filesMinuetten[sequence, dice];
+                sp.Load();
+                sp.PlaySync();
+
+                //Trioen
+                dice = rng.Next(0, 6);
+                sp.SoundLocation = filesTrioen[sequence, dice];
+                sp.Load();
+                sp.PlaySync();               
             }
             Console.WriteLine("DONE!!!");
             Console.Read();
