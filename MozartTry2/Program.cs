@@ -32,7 +32,6 @@ namespace MozartTry2
                     filesTrioen[row,col] = @"Wave\T" + trioen[row, col] + ".wav";
                 }
             }
-            
             //a soundplayer to use to play media files
             System.Media.SoundPlayer sp = new System.Media.SoundPlayer();
             //a dice to roll the random number
@@ -55,7 +54,6 @@ namespace MozartTry2
                 sp.Load();
                 sp.PlaySync();
                 Console.WriteLine("Playing " + filesTrioen[sequence, dice]);
-
             }
             Console.WriteLine("DONE!!!");
             Console.Read();
