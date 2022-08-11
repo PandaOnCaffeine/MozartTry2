@@ -47,12 +47,15 @@ namespace MozartTry2
                 sp.SoundLocation = filesMinuetten[sequence, dice];
                 sp.Load();
                 sp.PlaySync();
+                Console.WriteLine("Playing " + filesMinuetten[sequence,dice]);
 
                 //Trioen
                 dice = rng.Next(0, 6);
                 sp.SoundLocation = filesTrioen[sequence, dice];
                 sp.Load();
-                sp.PlaySync();               
+                sp.PlaySync();
+                Console.WriteLine("Playing " + filesTrioen[sequence, dice]);
+
             }
             Console.WriteLine("DONE!!!");
             Console.Read();
